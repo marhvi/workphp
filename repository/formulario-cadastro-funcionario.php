@@ -56,7 +56,7 @@
 
                     <input type="text" name="cpf" id="cpfId" class="form-control" placeholder="Informe a cpf">
 
-                    <div id="helpercpf" class="form-text">Informe o cpf</div>
+                    <div id="helpercpf" class="form-text">Informe o CPF</div>
 
                 </div>
 
