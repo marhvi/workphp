@@ -6,11 +6,14 @@
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
     
+    $page = "home.php";
+    
+    if (!$_SESSION['login']=fnLogin($email, $senha)){
+     $page = "errorPage.php";
+     $expire = (time() + 10);
 
-    $page = "errorPage.php?notify=acesso-negado";  
-  
-    if ($_SESSION['login']=fnLogin($email, $senha)){
-        $page = "home.php";  
+     setcookie('notify', 'Falha ao efetuar o Login', 
+     $expire, '/', 'localhost', isset($_SERVER['HTTPS']), true);  
     }
 
     header ("location: {$page}");

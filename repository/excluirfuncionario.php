@@ -11,6 +11,7 @@
     } else{
         $msg = "Falha ao apagar";
     }
-
-    header("location: listagem-de-funcionario.php?notify={$msg}");
+    $page = "listagem-de-funcionario.php";  
+    setcookie('notify', $msg, time()+10, "/sgf/{$page}", 'localhost');
+    header("location: {$page}"); 
     exit;

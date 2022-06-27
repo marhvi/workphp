@@ -1,7 +1,6 @@
 <?php 
     include('config.php');
     require_once('./funcionarioRepository.php');
-    $notificacao = filter_input(INPUT_GET, 'notify', FILTER_SANITIZE_SPECIAL_CHARS);
     $nome = filter_input(INPUT_GET, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
 ?>
 
@@ -52,7 +51,7 @@
     <?php if(isset($notificacao)):?>
     <tfoot>
       <tr>
-        <td colspan="7"><?= $notificacao ?></td>
+        <td colspan="7"><?= ($_COOKIE['notify']) ?></td>
       </tr>
     </tfoot>
     </table>

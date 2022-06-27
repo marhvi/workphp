@@ -1,7 +1,9 @@
 <?php 
     include('config.php');
     require_once('funcionarioRepository.php');
-    $notificacao = filter_input(INPUT_GET, 'notify', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_SESSION['id'])){
+    $id = $_SESSION['id'];
+    }
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     $funcionario = fnLocalizaFuncionariosporId($id);
 ?>
@@ -69,7 +71,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-dark">Enviar</button>
-                <div id="notify" class="form-text text capitalize fs-4"><?= $notificacao ?></div>
+                <div id="notify" class="form-text text capitalize fs-4"><?= isset($_COOKIE['notify']) ? $_COOKIE['notify'] : '' ?></div>
 
             </form>
 
