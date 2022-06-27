@@ -3,8 +3,8 @@
     require_once('funcionarioRepository.php');
     if(isset($_SESSION['id'])){
     $id = $_SESSION['id'];
-    }
-    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    }else{
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);}
     $funcionario = fnLocalizaFuncionariosporId($id);
 ?>
 
