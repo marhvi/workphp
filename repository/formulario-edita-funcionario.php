@@ -36,7 +36,7 @@
 
                 <div>
                 
-                <input type="hidden" name="idfuncionario" id="funcionarioId" class="form-control" placeholder="Informe o nome" value="<? $funcionario->id ?>">
+                <input type="hidden" name="idfuncionario" id="funcionarioId" class="form-control" placeholder="Informe o nome" value="<?= $funcionario->id ?>">
 
                 </div>
 
@@ -44,7 +44,7 @@
 
                     <label for="nomeId" class="form-label">Nome</label>
 
-                    <input type="text" name="nome" id="nomeId" class="form-control" placeholder="Informe o nome" value="<? $funcionario->nome ?>">
+                    <input type="text" name="nome" id="nomeId" class="form-control" placeholder="Informe o nome" value="<?= $funcionario->nome ?>">
 
                     <div id="helperNome" class="form-text">Informe o nome completo</div>
 
@@ -54,7 +54,7 @@
 
                     <label for="emailId" class="form-label">E-mail</label>
 
-                    <input type="email" name="email" id="emailId" class="form-control" placeholder="Informe o e-mail" value="<? $funcionario->email ?>">
+                    <input type="email" name="email" id="emailId" class="form-control" placeholder="Informe o e-mail" value="<?= $funcionario->email ?>">
 
                     <div id="helperEmail" class="form-text">Informe o e-mail</div>
 
@@ -64,9 +64,9 @@
 
                     <label for="cpfId" class="form-label">cpf</label>
 
-                    <input type="text" name="cpf" id="cpfId" class="form-control" placeholder="Informe o cpf" value="<? $funcionario->cpf ?>">
+                    <input type="text" name="cpf" id="cpfId" class="form-control" placeholder="Informe o cpf" value="<?= $funcionario->cpf ?>">
 
-                    <div id="helpercpf" class="form-text">Informe o cpf</div>
+                    <div id="helpercpf" class="form-text">Informe o CPF</div>
 
                 </div>
 
