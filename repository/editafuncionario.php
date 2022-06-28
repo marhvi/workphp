@@ -9,12 +9,12 @@
     $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
 
     $msg = "";
-    if (fnUpdatefuncionario($id, $nome, $email, $cpf)){
+    if (fnUpdateFuncionario($id, $nome, $email, $cpf)){
         $msg = "Sucesso ao gravar";
     } else{
         $msg = "Falha na gravação";
     }
-  $_SESSION['id'];   
+  $_SESSION['id'] = $id;   
   $page = "formulario-edita-funcionario.php";  
   setcookie('notify', $msg, time()+10, "/sgf/{$page}", 'localhost');
   header("location: {$page}"); 
