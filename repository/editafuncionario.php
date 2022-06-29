@@ -16,6 +16,6 @@
     }
   $_SESSION['id'] = $id;   
   $page = "formulario-edita-funcionario.php";  
-  setcookie('notify', $msg, time()+10, "/sgf/{$page}", 'localhost');
+  setcookie('notify', $msg, time()+10, "/repository/{$page}", 'localhost');
   header("location: {$page}"); 
   exit;

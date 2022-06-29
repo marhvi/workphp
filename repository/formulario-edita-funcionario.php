@@ -1,10 +1,12 @@
 <?php 
     include('config.php');
     require_once('funcionarioRepository.php');
-    if(isset($_SESSION['id'])){
-    $id = $_SESSION['id'];
-    }else{
-    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);}
+   
+    if(isset($_SESSION['id'])) {
+        $id = $_SESSION['id'];
+    } else {
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    }
     $funcionario = fnLocalizaFuncionariosporId($id);
 ?>
 
@@ -44,7 +46,7 @@
 
                     <label for="nomeId" class="form-label">Nome</label>
 
-                    <input type="text" name="nome" id="nomeId" class="form-control" placeholder="Informe o nome" value="<?= $funcionario->nome ?>">
+                    <input type="text" name="nome" id="nomeId" class="form-control" placeholder="Informe o nome" value="<?=$funcionario->nome ?>">
 
                     <div id="helperNome" class="form-text">Informe o nome completo</div>
 
@@ -54,7 +56,7 @@
 
                     <label for="emailId" class="form-label">E-mail</label>
 
-                    <input type="email" name="email" id="emailId" class="form-control" placeholder="Informe o e-mail" value="<?= $funcionario->email ?>">
+                    <input type="email" name="email" id="emailId" class="form-control" placeholder="Informe o e-mail" value="<?=$funcionario->email ?>">
 
                     <div id="helperEmail" class="form-text">Informe o e-mail</div>
 

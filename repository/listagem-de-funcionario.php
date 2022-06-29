@@ -21,19 +21,18 @@
   </head>
 
   <body>
-    <?php include('C:/xampp2/htdocs/SGF/repository/navbar.php'); ?>
+    <?php include('navbar.php'); ?>
     <div class="col-6 offset-3">
     <table class="table table-stripped">
     <thead>
-        <td>
+        <tr>
             <th>#</th>
             <th>Nome</th>
             <th>Email</th>
             <th>CPF</th>
             <th>Data cadastro</th>
             <th colspan="2">Gerenciar</th>
-        </td>
-
+        </tr>
     </thead>
     <tbody>
       <?php foreach(fnLocalizaFuncionariosPorNome($nome) as $funcionario):?>
@@ -43,8 +42,8 @@
             <td><?= $funcionario->email ?></td>
             <td><?= $funcionario->cpf ?></td>
             <td><?= $funcionario->created_at ?></td>
-            <td><a href="formulario-edita-funcionario.php?id=<?= $funcionario->id ?>">Editar</a></td>
-            <td><a onclick="return confirm ('Deseja realmente excluir?');" href="excluirfuncionario.php?id=<?= $funcionario->id ?>">Excluir</a></td>
+            <td><a href="#" onclick="gerirUsuario(<?= $funcionario->id ?>, 'edit');">Editar</a></td>
+            <td><a onclick="return confirm('Deseja realmente excluir?') ? gerirUsuario(<?= $funcionario->id ?>, 'del') : '';" href="#">Excluir</a></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
@@ -58,5 +57,31 @@
       <?php endif; ?>
     </div>
 <?php include('rodape.php'); ?>
+<script>
+        window.post = (data) => {
+            return fetch(
+                'set-session.php',
+                {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                }
+            )
+            .then(response => {
+                console.log(`Requisição completa! Resposta:`, response);
+            });
+        }
+
+        function gerirUsuario(id, action) {
+            
+            post({data : id});
+
+            url = 'excluirfuncionario.php';
+            if(action === 'edit')
+                url = 'formulario-edita-funcionario.php';
+            
+            window.location.href = url;
+        }
+    </script>
   </body>
 </html>

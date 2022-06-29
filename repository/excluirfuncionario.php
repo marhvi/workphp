@@ -2,16 +2,18 @@
 
     require_once('./funcionarioRepository.php');
 
-   
-    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    session_start();
     
   
-    if (fnDeleteFuncionario($id)){
+    if (fnDeleteFuncionario($_SESSION['id'])){
         $msg = "Sucesso ao apagar";
     } else{
         $msg = "Falha ao apagar";
     }
+    
+    unset($_SESSION['id']);
+
     $page = "listagem-de-funcionario.php";  
-    setcookie('notify', $msg, time()+10, "/sgf/{$page}", 'localhost');
+    setcookie('notify', $msg, time()+10, "/repository/{$page}", 'localhost');
     header("location: {$page}"); 
     exit;

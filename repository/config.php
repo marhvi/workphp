@@ -10,5 +10,4 @@
     header("location: {$page}"); 
     exit;
     }
-    setcookie("cookie01", "little cookie");
-    setcookie("cookie02", "eikooc");
+    

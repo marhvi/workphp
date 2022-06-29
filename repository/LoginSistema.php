@@ -13,7 +13,7 @@
      $expire = (time() + 10);
 
      setcookie('notify', 'Falha ao efetuar o Login', 
-     $expire, '/', 'localhost', isset($_SERVER['HTTPS']), true);  
+     $expire, 'sgf/repository/errorPage.php', 'localhost', isset($_SERVER['HTTPS']), true);  
     }
 
     header ("location: {$page}");
