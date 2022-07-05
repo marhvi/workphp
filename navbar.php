@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="home.php">SGF</a>
+    <a class="navbar-brand" href="#">SGF</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,20 +11,20 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Funcionário
+            Funcionario
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="formulario-cadastro-funcionario.php">Cadastro</a></li>
-            <li><a class="dropdown-item" href="listagem-de-funcionario.php">Listagem</a></li>
+            <li><a class="dropdown-item" href="listagem-de-funcionarios.php">Listagem</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Busca</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled"><?= $_SESSION['login']->email?></a>
+          <a class="nav-link disabled"><?= $_SESSION['login']->email ?></a>
         </li>
       </ul>
-      <form id="searchName" class="d-flex" role="search" method="post" action="localiza-funcionario.php">
+      <form id="formSearchName" class="d-flex" role="search" method="post" action="localiza-funcionario.php">
         <input id="searchName" class="form-control me-2" name="nomeFuncionario" type="search" placeholder="Informe o nome" aria-label="Search">
         <a class="btn btn-outline-danger" href="logout.php">Logout</a>
       </form>

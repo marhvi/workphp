@@ -1,20 +1,20 @@
 <?php
 
-require_once ('./Connection.php');
+require_once ('Connection.php');
 
 
 
-function fnAddFuncionario($nome, $email, $cpf){
+function fnAddFuncionario($nome, $foto, $email, $cpf) {
+        
     $con = getConnection();
-   
-   
-    $sql = "insert into funcionario (nome, email, cpf) values (:pNome, :pEmail, :pCpf)";
-   
+    $sql = "insert into funcionario (nome, foto, email, cpf) values (:pNome, :pFoto, :pEmail, :pCpf)";
+    
     $stmt = $con->prepare($sql);
-    $stmt->bindParam(":pNome", $nome);
-    $stmt->bindParam(":pEmail", $email);
-    $stmt->bindParam(":pCpf", $cpf);
-
+    $stmt->bindParam(":pNome", $nome); 
+    $stmt->bindParam(":pFoto", $foto); 
+    $stmt->bindParam(":pEmail", $email); 
+    $stmt->bindParam(":pCpf", $cpf); 
+    
     return $stmt->execute();
 }
 
@@ -61,18 +61,18 @@ function fnLocalizaFuncionariosporId($id){
 
   return null;
 }
-function fnUpdateFuncionario($id, $nome, $email, $cpf){
+function fnUpdateFuncionario($id, $nome, $foto, $email, $cpf) {
     $con = getConnection();
-   
-   
-    $sql = "update funcionario set nome = :pNome , email = :pEmail , cpf = :pCpf where id = :pID";
-   
+            
+    $sql = "update funcionario set nome = :pNome, foto = :pFoto, email = :pEmail, cpf = :pCpf where id = :pID";
+    
     $stmt = $con->prepare($sql);
-    $stmt->bindParam(":pID", $id);
+    $stmt->bindParam(":pID", $id); 
     $stmt->bindParam(":pNome", $nome);
-    $stmt->bindParam(":pEmail", $email);
-    $stmt->bindParam(":pcpf", $cpf);
-
+    $stmt->bindParam(":pFoto", $foto);  
+    $stmt->bindParam(":pEmail", $email); 
+    $stmt->bindParam(":pCpf", $cpf); 
+    
     return $stmt->execute();
 }
 function fnDeleteFuncionario($id){
