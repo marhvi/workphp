@@ -1,0 +1,66 @@
+Herança
+1. Herda os membros da classe pai, ou seja, atributos e métodos;
+2) Especializa uma classe;
+
+Pode gerar problemas de alta acoplação/dependencia, porque uma alteração na classe pai também alterará as classes filhas, um efeito dominó.
+
+O código tem que ter alta coesão e baixa acoplação.
+
+Exemplo:
+Pessoa: nome, email, telefone, matricula
+
+Aluno especializa Pessoa
+Aluno -> curso
+
+Funcionário especializa Pessoa
+Funcionário -> salário
+
+Professor especializa Funcionário
+Professor -> conhecimento técnico
+
+Supervisor Técnico especializa Funcionário
+Supervisor Técnico -> área de supervisão
+
+Se uma classe de um pacote especializa a outra de um pacote diferente então é subclasse, logo só pode usar ou public ou protected.
+
+----------------------------------------------------------
+
+Modelar a classe que será persistida no banco
+
+----------------------------------------------------------
+
+quando se cria uma aplicação em java, são feitas camadas
+
+usuario <----> banco de dados (errado!)x
+
+interface -> contrato que quem implementa precisa seguir
+
+camadas:
+            parede 1        parede 2    parede 3    parede 4
+user -> user interface -> controller -> service -> repository -> banco de dados
+
+usuario falando diretamente com o banco certamente não é algo nada seguro, por isso das camadas (interfaces de recursos até banco de dados)
+
+usuario -> interface gráfica(pagina web, interface de app), ou seja, a interface do usuario
+
+user interface -> controller, quem gerencia e faz requisições da interface usuario, intermediador
+
+controller -> service
+vai usar ou jsp/servlet (antigo) ou struts ou JSF -> legado(sistemas sem atualização)
+scriptlets -> manipular banco (tambem é antigo)
+
+service -> repository
+
+----------------------------------------------------------
+java usando spring boot + Angular v12 + "plus" + RabbitMQ
+----------------------------------------------------------
+
+Double x double
+    -> Double é a classe (wrapper) é a rescrita do double com recursos de manipulação da variavel
+    -> double é o tipo do atributo, somente define o tipo e mais nada
+
+retorno  nome do método     parametros/argumentos de entrada
+Double    media           (double nota01, double02) // assinatura do método
+{// inicio do corpo do método
+    return (nota01 + nota02) / 2;
+// fim do corpo do método}
